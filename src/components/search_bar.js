@@ -8,18 +8,18 @@ class SearchBar extends Component {
 
     render (){
         return (
-            <div>
+            <div className=" margin-bottom-20">
                 <input className="form-control" 
                 value={this.state.term}
-                onChange={event => this.setState({term: event.target.value})} />
-                <p className="alert alert-info">Searching for: {this.state.term}</p>
+                onChange={event => this.onInputChage(event.target.value)} placeholder="Search..." />
             </div>
         )
     }
 
-    // onInputChage(event) {
-    //     console.log(event.target.value);
-    // }
+     onInputChage(term) {
+        this.setState({term});
+        this.props.onSearchTermChange(term);
+     }
 }
 
 
